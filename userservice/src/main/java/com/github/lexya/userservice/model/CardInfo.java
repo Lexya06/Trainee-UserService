@@ -22,6 +22,6 @@ public class CardInfo {
     @JoinColumn(name="card_holder_id",  nullable = true)
     private User holder;
 
-    @Column(name="expirationDate")
+    @Column(name="expiration_date")
     private OffsetDateTime expirationDate;
 }
