@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - includeAll:
+      path: V1.0/20251022/initial_tables
+      relativeToChangelogFile: true
+  - includeAll:
+      path: V1.0/20251022/apply_indexes_and_foreign_keys
+      relativeToChangelogFile: true
