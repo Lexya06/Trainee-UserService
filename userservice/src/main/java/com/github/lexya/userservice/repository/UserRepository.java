@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
 
-    @Modifying(clearAutomatically = false)
+    @Modifying
     @Query(
         value = "INSERT INTO users (name, surname, birth_date, email) VALUES (:name, :surname, :birthDate, :email) RETURNING *",
         nativeQuery = true
@@ -28,7 +28,7 @@ public interface UserRepository extends JpaRepository<User,Long> {
     Optional<User> findUserByUserEmail(String email);
 
 
-    @Modifying(clearAutomatically = false)
+    @Modifying(clearAutomatically = true)
     @Query(
             value = "UPDATE users SET name = :name, surname = :surname, birth_date = :birthDate" +
                     ", email = :email WHERE id = :id" ,
@@ -36,4 +36,8 @@ public interface UserRepository extends JpaRepository<User,Long> {
     )
     int updateUserByIdNative(@Param("id") Long id,@Param("name") String name, @Param("surname") String surname, @Param("birthDate") LocalDate birthDate, @Param("email") String email);
 
+    @Modifying(clearAutomatically = true)
+    void removeUserById( Long id);
+
+    // findAll embedded
 }

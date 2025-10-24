@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CardInfoRepository extends JpaRepository<CardInfo,Long> {
     List<CardInfo> findByUserId(Long id);
@@ -19,4 +18,6 @@ public interface CardInfoRepository extends JpaRepository<CardInfo,Long> {
             nativeQuery = true
     )
     int removeByUserId(@Param("id") Long id);
+
+    // findAll embedded
 }
