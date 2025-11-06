@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
-
 @Entity
 @Table(name="card_info")
 public class CardInfo extends BaseEntity {
@@ -15,8 +13,9 @@ public class CardInfo extends BaseEntity {
     private Long id;
 
     @Getter
+    @Setter
     @ManyToOne
-    @JoinColumn(name="card_user_id")
+    @JoinColumn(nullable = false, name="card_user_id")
     private User user;
 
     @Getter
@@ -25,13 +24,13 @@ public class CardInfo extends BaseEntity {
     private String cardNumber;
 
     @Getter
-    @ManyToOne
-    @JoinColumn(name="card_holder_id")
-    private User holder;
+    @Setter
+    @Column(name="card_holder", nullable = false)
+    private String holder;
 
     @Getter
-    @Column(name="expiration_date")
-    private OffsetDateTime expirationDate;
+    @Column(nullable = false, name="expiration_date")
+    private String expirationDate;
 
     @Getter
     @Setter

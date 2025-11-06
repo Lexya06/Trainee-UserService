@@ -17,25 +17,26 @@ databaseChangeLog:
                   name: card_user_id
                   type: bigint
                   constraints:
-                    nullable: true
+                    nullable: false
               - column:
                   name: number
                   type: varchar(19)
                   constraints:
                     nullable: false
               - column:
-                  name: card_holder_id
-                  type: bigint
+                  name: card_holder
+                  type: varchar(300)
                   constraints:
-                    nullable: true
+                    nullable: false
               - column:
                   name: expiration_date
-                  type: timestamptz
+                  type: varchar(7)
                   constraints:
                     nullable: false
               - column:
                   name: active
-                  type: tinyint(1)
+                  type: boolean
+                  defaultValueBoolean: false
                   constraints:
                     nullable: false
               - column:
@@ -48,4 +49,4 @@ databaseChangeLog:
                   name: updated_at
                   type: timestamptz
                   constraints:
-                    nullable: false
+                    nullable: true

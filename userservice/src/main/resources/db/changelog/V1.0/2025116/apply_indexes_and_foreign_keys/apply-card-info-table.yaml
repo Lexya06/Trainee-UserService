@@ -9,14 +9,8 @@ databaseChangeLog:
             referencedTableName: users
             referencedColumnNames: id
             constraintName: fk_card_user
-            onDelete: SET NULL
-        - addForeignKeyConstraint:
-            baseTableName: card_info
-            baseColumnNames: card_holder_id
-            referencedTableName: users
-            referencedColumnNames: id
-            constraintName: fk_card_holder
-            onDelete: SET NULL
+            onDelete: CASCADE
+            onUpdate: NO ACTION
         - createIndex:
             indexName: idx_card_user
             tableName: card_info
@@ -28,7 +22,7 @@ databaseChangeLog:
             tableName: card_info
             columns:
               - column:
-                  name: card_holder_id
+                  name: card_holder
         - addUniqueConstraint:
             constraintName: uk_card_number
             tableName: card_info

@@ -5,10 +5,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="users")
 public class User extends BaseEntity {
+    @Getter
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    List<CardInfo> cards = new ArrayList<>();
+
     @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
