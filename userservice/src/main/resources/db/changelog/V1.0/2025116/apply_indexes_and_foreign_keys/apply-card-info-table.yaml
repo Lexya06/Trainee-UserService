@@ -29,9 +29,25 @@ databaseChangeLog:
             columns:
               - column:
                   name: card_holder_id
+        - addUniqueConstraint:
+            constraintName: uk_card_number
+            tableName: card_info
+            columnNames: number
         - createIndex:
-            indexName: idx_card_number
+            indexName: idx_card_active
             tableName: card_info
             columns:
               - column:
-                  name: number
+                  name: active
+        - createIndex:
+            indexName: idx_card_created_at
+            tableName: card_info
+            columns:
+              - column:
+                  name: created_at
+        - createIndex:
+            indexName: idx_card_updated_at
+            tableName: card_info
+            columns:
+              - column:
+                  name: updated_at

@@ -8,7 +8,7 @@ import java.time.OffsetDateTime;
 
 @Entity
 @Table(name="card_info")
-public class CardInfo {
+public class CardInfo extends BaseEntity {
     @Getter
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class CardInfo {
 
     @Getter
     @ManyToOne
-    @JoinColumn(name="card_user_id", nullable = true)
+    @JoinColumn(name="card_user_id")
     private User user;
 
     @Getter
@@ -26,10 +26,15 @@ public class CardInfo {
 
     @Getter
     @ManyToOne
-    @JoinColumn(name="card_holder_id",  nullable = true)
+    @JoinColumn(name="card_holder_id")
     private User holder;
 
     @Getter
     @Column(name="expiration_date")
     private OffsetDateTime expirationDate;
+
+    @Getter
+    @Setter
+    @Column(nullable = false, name = "active")
+    private boolean isCardActive;
 }

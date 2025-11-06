@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name="users")
-public class User {
+public class User extends BaseEntity {
     @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class User {
 
     @Getter
     @Setter
-    @Column(nullable = true, name = "surname")
+    @Column(name = "surname")
     private String userSurname;
 
     @Getter
@@ -33,4 +33,9 @@ public class User {
     @Setter
     @Column(nullable = false, name= "email", unique = true, length = 254)
     private String userEmail;
+
+    @Getter
+    @Setter
+    @Column(nullable = false, name = "active")
+    private boolean isUserActive;
 }
