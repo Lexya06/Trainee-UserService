@@ -32,10 +32,11 @@ databaseChangeLog:
                   name: expiration_date
                   type: timestamptz
                   constraints:
-                    nullable: false
+                    nullable: true
               - column:
                   name: active
-                  type: tinyint(1)
+                  type: boolean
+                  defaultValueBoolean: false
                   constraints:
                     nullable: false
               - column:
@@ -48,4 +49,4 @@ databaseChangeLog:
                   name: updated_at
                   type: timestamptz
                   constraints:
-                    nullable: false
+                    nullable: true
