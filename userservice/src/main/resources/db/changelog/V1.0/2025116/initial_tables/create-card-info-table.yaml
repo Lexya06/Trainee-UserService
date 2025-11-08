@@ -32,7 +32,7 @@ databaseChangeLog:
                   name: expiration_date
                   type: varchar(7)
                   constraints:
-                    nullable: false
+                    nullable: true
               - column:
                   name: active
                   type: boolean
