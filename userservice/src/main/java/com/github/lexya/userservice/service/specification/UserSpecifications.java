@@ -1,6 +1,6 @@
 package com.github.lexya.userservice.service.specification;
 
-import com.github.lexya.userservice.dto.UserFilterDTO;
+import com.github.lexya.userservice.service.dto.UserFilterDTO;
 import com.github.lexya.userservice.model.User;
 import org.springframework.data.jpa.domain.Specification;
 

@@ -1,8 +1,8 @@
 package com.github.lexya.userservice.service;
 
-import com.github.lexya.userservice.dto.*;
-import com.github.lexya.userservice.mapper.CardMapper;
-import com.github.lexya.userservice.mapper.UserMapper;
+import com.github.lexya.userservice.service.dto.*;
+import com.github.lexya.userservice.service.mapper.CardMapper;
+import com.github.lexya.userservice.service.mapper.UserMapper;
 import com.github.lexya.userservice.model.CardInfo;
 import com.github.lexya.userservice.model.User;
 import com.github.lexya.userservice.repository.CardInfoRepository;

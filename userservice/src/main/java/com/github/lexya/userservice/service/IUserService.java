@@ -1,6 +1,6 @@
 package com.github.lexya.userservice.service;
 
-import com.github.lexya.userservice.dto.*;
+import com.github.lexya.userservice.service.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

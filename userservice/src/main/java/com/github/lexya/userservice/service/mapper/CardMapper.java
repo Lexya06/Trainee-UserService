@@ -1,9 +1,11 @@
-package com.github.lexya.userservice.mapper;
+package com.github.lexya.userservice.service.mapper;
 
-import com.github.lexya.userservice.dto.*;
 import com.github.lexya.userservice.model.CardInfo;
 import com.github.lexya.userservice.model.User;
 import com.github.lexya.userservice.repository.UserRepository;
+import com.github.lexya.userservice.service.dto.CardInfoCreateDTO;
+import com.github.lexya.userservice.service.dto.CardInfoPublicDTO;
+import com.github.lexya.userservice.service.dto.CardInfoUpdateDTO;
 import jakarta.persistence.EntityNotFoundException;
 import org.mapstruct.*;
 

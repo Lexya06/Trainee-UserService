@@ -1,8 +1,8 @@
-package com.github.lexya.userservice.mapper;
+package com.github.lexya.userservice.service.mapper;
 
-import com.github.lexya.userservice.dto.UserCreateDTO;
-import com.github.lexya.userservice.dto.UserPublicDTO;
-import com.github.lexya.userservice.dto.UserUpdateDTO;
+import com.github.lexya.userservice.service.dto.UserCreateDTO;
+import com.github.lexya.userservice.service.dto.UserPublicDTO;
+import com.github.lexya.userservice.service.dto.UserUpdateDTO;
 import com.github.lexya.userservice.model.User;
 import org.mapstruct.*;
 
