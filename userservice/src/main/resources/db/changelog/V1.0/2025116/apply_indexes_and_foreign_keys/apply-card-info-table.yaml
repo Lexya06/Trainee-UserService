@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: apply-card-info-table
+      author: Yana Aliakseichyk
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: card_info
+            baseColumnNames: card_user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_card_user
+            onDelete: CASCADE
+            onUpdate: NO ACTION
+        - createIndex:
+            indexName: idx_card_user
+            tableName: card_info
+            columns:
+              - column:
+                  name: card_user_id
+        - createIndex:
+            indexName: idx_card_holder
+            tableName: card_info
+            columns:
+              - column:
+                  name: card_holder
+        - addUniqueConstraint:
+            constraintName: uk_card_number
+            tableName: card_info
+            columnNames: number
+        - sql:
+            sql: >
+              CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_card_info_covered
+              ON card_info(id)
+              INCLUDE (card_user_id, number, card_holder, expiration_date)
+              WHERE active = true
+        - createIndex:
+            indexName: idx_card_created_at
+            tableName: card_info
+            columns:
+              - column:
+                  name: created_at
+        - createIndex:
+            indexName: idx_card_updated_at
+            tableName: card_info
+            columns:
+              - column:
+                  name: updated_at

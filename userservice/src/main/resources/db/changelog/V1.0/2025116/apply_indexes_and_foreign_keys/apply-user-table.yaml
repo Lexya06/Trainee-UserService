@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: apply-user-table
+      author: Yana Aliakseichyk
+      changes:
+        - addUniqueConstraint:
+            constraintName: uk_user_email
+            tableName: users
+            columnNames: email
+        - sql:
+            sql: >
+              CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_user_info_covered
+              ON users(id)
+              INCLUDE (name, surname, email, birt_date)
+              WHERE active = true
+        - createIndex:
+            indexName: idx_user_name_and_surname
+            tableName: users
+            columns:
+              - column:
+                  name: surname
+              - column:
+                  name: name
