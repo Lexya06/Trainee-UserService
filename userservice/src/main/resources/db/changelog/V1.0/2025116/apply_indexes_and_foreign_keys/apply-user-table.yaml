@@ -7,12 +7,12 @@ databaseChangeLog:
             constraintName: uk_user_email
             tableName: users
             columnNames: email
-        - createIndex:
-            indexName: idx_user_active
-            tableName: users
-            columns:
-              - column:
-                  name: active
+        - sql:
+            sql: >
+              CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_user_info_covered
+              ON users(id)
+              INCLUDE (name, surname, email, birt_date)
+              WHERE active = true
         - createIndex:
             indexName: idx_user_name_and_surname
             tableName: users
