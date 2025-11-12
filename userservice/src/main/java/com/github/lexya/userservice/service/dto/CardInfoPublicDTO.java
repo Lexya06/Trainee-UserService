@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 // dto for rest response
 public class CardInfoPublicDTO {
-    Long id;
+    private Long id;
     boolean isCardActive;
-    UserPublicDTO user;
+    private UserPublicDTO user;
 }

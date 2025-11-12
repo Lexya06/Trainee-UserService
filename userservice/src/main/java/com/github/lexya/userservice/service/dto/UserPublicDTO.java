@@ -7,7 +7,7 @@ import java.util.List;
 // dto for rest response
 @Data
 public class UserPublicDTO {
-    Long id;
+    private Long id;
     private boolean isUserActive;
-    List<CardInfoPublicDTO> cards;
+    private List<CardInfoPublicDTO> cards;
 }
